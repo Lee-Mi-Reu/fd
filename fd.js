@@ -12,4 +12,3 @@ setTimeout(function () {
     .remove();
 }, 1000);
 jQuery("#gnb").on("click", ".mir-god", sex);
-
