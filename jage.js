@@ -1,4 +1,10 @@
-jQuery("#wcms > form > div > table > tbody > tr.first > td._writer_area.writer").each(function (i, e) {
-    console.log(e.text);
+var chadan = ['hyunmin', 'br']
+jQuery("#wcms > form > div > table > tbody > tr > td._writer_area.writer").each(function (i, e) {
+    e = jQuery(e);
+    chadan.forEach(function (v) {
+        if (!e.text().indexOf(v)) {
+            e.parentsUntil('.tr')[0].remove();
+        }
+    })
 });
-console.log(jQuery("#wcms > form > div > table > tbody > tr.first > td._writer_area.writer").length);
+console.log(jQuery("#wcms > form > div > table > tbody > tr > td._writer_area.writer").length);
