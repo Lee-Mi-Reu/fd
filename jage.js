@@ -1,4 +1,4 @@
-var chadan = ['hyunmin']
+var chadan = ['hyunmin', 'br']
 jQuery("#wcms > form > div > table > tbody > tr > td._writer_area.writer").each(function (i, e) {
     e = jQuery(e);
     chadan.forEach(function (v) {
