@@ -5,13 +5,11 @@ jQuery("#wcms > form > div > table > tbody > tr > td._writer_area.writer").each(
         url: "https://rawgit.com/Lee-Mi-Reu/fd/master/chadan.json",
         dataType: "json",
         success: function (data) {
-            chadan = data;
-            console.log(data);
+            data.forEach(function (v) {
+                if (!e.text().indexOf(v)) {
+                    e.parentsUntil('.tr')[0].remove();
+                }
+            });
         }
     })
-    chadan.forEach(function (v) {
-        if (!e.text().indexOf(v)) {
-            e.parentsUntil('.tr')[0].remove();
-        }
-    });
 });
