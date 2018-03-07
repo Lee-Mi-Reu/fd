@@ -30,7 +30,7 @@ setTimeout(function () {
     .remove();
 }, 1000);
 jQuery("#gnb").on("click", ".mir-god", pp);
-jQuery("a[data-target='lineup']").on("click", ".mir-god", function () {
+jQuery("a[data-target='lineup']").on("click", function () {
     setTimeout(function () {
         pp();
     }, 1000);
