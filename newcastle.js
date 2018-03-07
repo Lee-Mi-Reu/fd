@@ -4,8 +4,8 @@ function cha(ori, name, imgMin, imgBig) {
     var grandFather = player.parent().parent();
     grandFather.siblings(".name_area").find(".name").text(name);
     
-    alert('zzz');
     if (imgBig) {
+        alert('zz');
         grandFather.siblings(".plr_btn").find(".plr_more").on('click', function () {
             alert('z');
             setTimeout(function () {
@@ -15,7 +15,7 @@ function cha(ori, name, imgMin, imgBig) {
         });
     }
 }
-function sex() {
+function pp() {
     cha(11011001, '셰이 기븐', 'https://i.imgur.com/aZ9RCCw.png', 'https://i.imgur.com/o9rOKUf.png')
     cha(11014013, '셰이크 티오테', 'https://i.imgur.com/y242Mvo.png', 'https://i.imgur.com/o9rOKUf.png')
 
@@ -24,9 +24,9 @@ function sex() {
     var update_2;
 }
 setTimeout(function () {
-    sex();
+    pp();
     jQuery(".naver_sports")
     .after(jQuery("<img>").prop({width: 30, src: "https://i.imgur.com/OwpYc3T.png"}).addClass("mir-god"))
     .remove();
 }, 1000);
-jQuery("#gnb").on("click", ".mir-god", sex);
+jQuery("#gnb").on("click", ".mir-god", pp);
