@@ -1,7 +1,15 @@
 function sex() {
     var given = jQuery("img[src*='11011001_73']");
     given.prop("src", "https://i.imgur.com/aZ9RCCw.png");
-    given.parent().parent().siblings(".name_area").find(".name").text("셰이 기븐");
+    var grandFather = given.parent().parent();
+    grandFather.siblings(".name_area").find(".name").text("셰이 기븐");
+    grandFather.siblings(".plr_btn").find(".plr_more").on('click', function () {
+        setTimeout(function () {
+            jQuery(".plr_name_big").text("셰이 기븐");
+            jQuery(".plr_pic > img").prop("src", "https://i.imgur.com/o9rOKUf.png");
+        }, 1000);
+    });
+
     var tiote = jQuery("img[src*='11014013_73']");
     tiote.prop("src", "https://i.imgur.com/y242Mvo.png");
     tiote.parent().parent().siblings(".name_area").find(".name").text("셰이크 티오테");
