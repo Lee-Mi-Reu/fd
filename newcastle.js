@@ -7,7 +7,7 @@ function cha(ori, name, imgMin, imgBig) {
         grandFather.siblings(".plr_btn").on("click", ".plr_more", function () {
             setTimeout(function () {
                 var nation_name = jQuery(".plr_name_big").html();
-                jQuery(".plr_name_big").html(nation_name.substring(nation_name.lastIndexOf('>')+1))
+                jQuery(".plr_name_big").html(nation_name.substring(0, nation_name.lastIndexOf('>')+1)+name);
                 jQuery(".plr_pic > img").prop("src", imgBig);
             }, 1000);
         });
