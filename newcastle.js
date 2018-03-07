@@ -3,7 +3,7 @@ function cha(ori, name, imgMin, imgBig) {
     player.prop("src", imgMin);
     var grandFather = player.parent().parent();
     grandFather.siblings(".name_area").find(".name").text(name);
-    grandFather.siblings(".name_area").on("click", function () {
+    grandFather.siblings(".plr_btn").on("click", function () {
         alert('asdas');
     });
     if (imgBig) {
