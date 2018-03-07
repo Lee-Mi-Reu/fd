@@ -6,8 +6,8 @@ function cha(ori, name, imgMin, imgBig) {
     if (imgBig) {
         grandFather.siblings(".plr_btn").on("click", ".plr_more", function () {
             setTimeout(function () {
-                alert(jQuery(".plr_name_big").html());
-                jQuery(".plr_name_big").text(name);
+                var nation_name = jQuery(".plr_name_big").html();
+                jQuery(".plr_name_big").html(nation_name.substring(nation_name.lastIndexOf('>')+1))
                 jQuery(".plr_pic > img").prop("src", imgBig);
             }, 1000);
         });
