@@ -3,7 +3,7 @@ function cha(obj) {
     player.prop("src", obj.imgMin);
     var grandFather = player.parent().parent();
     grandFather.siblings(".name_area").find(".name").text(obj.name);
-    if (imgBig) {
+    if (obj.imgBig) {
         grandFather.siblings(".plr_btn").on("click", ".plr_more", function () {
             setTimeout(function () {
                 var nation_name = jQuery(".plr_name_big").html();
