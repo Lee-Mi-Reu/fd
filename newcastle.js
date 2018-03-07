@@ -3,6 +3,7 @@ function sex() {
     given.prop("src", "https://i.imgur.com/aZ9RCCw.png");
     var grandFather = given.parent().parent();
     grandFather.siblings(".name_area").find(".name").text("셰이 기븐");
+    console.log(grandFather.siblings(".plr_btn").find(".plr_more"));
     grandFather.siblings(".plr_btn").find(".plr_more").on('click', function () {
         setTimeout(function () {
             jQuery(".plr_name_big").text("셰이 기븐");
