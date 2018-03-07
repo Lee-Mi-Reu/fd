@@ -3,9 +3,8 @@ function cha(ori, name, imgMin, imgBig) {
     player.prop("src", imgMin);
     var grandFather = player.parent().parent();
     grandFather.siblings(".name_area").find(".name").text(name);
-    alert(grandFather.siblings(".plr_btn").find(".plr_more").text());
     if (imgBig) {
-        grandFather.siblings(".plr_btn").find(".plr_more").on('click', function () {
+        grandFather.parent().on('click', ".plr_more", function () {
             alert('z');
             setTimeout(function () {
                 jQuery(".plr_name_big").text(name);
