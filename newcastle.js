@@ -29,4 +29,9 @@ setTimeout(function () {
     .after(jQuery("<img>").prop({width: 30, src: "https://i.imgur.com/OwpYc3T.png"}).addClass("mir-god"))
     .remove();
 }, 1000);
-jQuery("#gnb, a[data-target='lineup']").on("click", ".mir-god", pp);
+jQuery("#gnb").on("click", ".mir-god", pp);
+jQuery("a[data-target='lineup']").on("click", ".mir-god", function () {
+    setTimeout(function () {
+        pp();
+    }, 1000);
+});
