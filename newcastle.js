@@ -5,8 +5,8 @@ function cha(ori, name, imgMin, imgBig) {
     grandFather.siblings(".name_area").find(".name").text(name);
     if (imgBig) {
         grandFather.siblings(".plr_btn").on("click", ".plr_more", function () {
-            alert('z');
             setTimeout(function () {
+                alert(jQuery(".plr_name_big").html());
                 jQuery(".plr_name_big").text(name);
                 jQuery(".plr_pic > img").prop("src", imgBig);
             }, 1000);
