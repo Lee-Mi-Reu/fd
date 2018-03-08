@@ -3,11 +3,8 @@ jQuery.ajax({
     dataType: "JSON",
     success: function (data) {
         data.forEach(function (v) {
-            jQuery("#wcms > form > div > table > tbody > tr > td._writer_area.writer").each(function (i, e) {
-                e = jQuery(e);
-                if (!e.text().indexOf(v)) {
-                    e.parentsUntil('.tr')[0].remove();
-                }
+            jQuery("td._writer_area.writer:contains("+v+")").each(function (i, e) {
+                jQuery(e).parentsUntil('.tr')[0].remove();
             });
         });
     }
