@@ -1,52 +1,54 @@
 function cha(obj) {
-    if (obj.name) {
-        var player = jQuery("img[src*='"+obj.ori+"_73']");
-        player.prop("src", obj.imgMin);
-        var grandFather = player.parent().parent();
-        grandFather.siblings(".name_area").find(".name").text(obj.name);
-        if (obj.imgBig) {
-            grandFather.siblings(".plr_btn").on("click", ".plr_more", function () {
-                setTimeout(function () {
-                    var nation_name = jQuery(".plr_name_big").html();
-                    jQuery(".plr_name_big").html(nation_name.substring(0, nation_name.lastIndexOf('>')+1)+obj.name);
-                    jQuery(".plr_pic > img").prop("src", obj.imgBig)
-                }, 1000)
-            })
-        }
-    }
-    if (obj.rating) {
-        var bigCard = jQuery(".ex_card > .crd_sec");
-        var ratingClassArr = bigCard.prop("class").split(" ");
-        var ratingClass = "";
-        for (var i = 0; i < 2; i++) {
-            ratingClass += ratingClassArr[i]+" "
-        }
-        ratingClass += obj.rating+" ";
-        switch (obj.rating) {
-            case "ace" :
-            case "l" :
-            case "e" :
-            case "w" :
-            ratingClass += "max10_"+obj.rating;
-            break;
-            case "nlive" :
-            ratingClass += obj.rating;
-            break;
-            case "s" :
-            ratingClass += "max9_"+obj.rating;
-            break;
-            case "n" :
-            ratingClass += "max8_"+obj.rating;
-            break
-        }
-        bigCard.prop("class", ratingClass)
-    }
-    if (obj.level) {
-        jQuery(".plr_level").text(obj.level)
-    }
-    if (obj.poten) {
-        jQuery('.crd_box > span.up').addClass("num"+obj.poten);
-    }
+    var player = jQuery("img[src*='"+obj.ori+"_73']");
+
+    if (obj.imgMin) player.prop("src", obj.imgMin);
+
+    var grandFather = player.parent().parent();
+
+    if(obj.name) grandFather.siblings(".name_area").find(".name").text(obj.name);
+
+    grandFather.siblings(".plr_btn").on("click", ".plr_more", function () {
+        setTimeout(function () {
+            if(obj.name) {
+                var nation_name = jQuery(".plr_name_big").html();
+                jQuery(".plr_name_big").html(nation_name.substring(0, nation_name.lastIndexOf('>')+1)+obj.name);
+            }
+
+            if (obj.imgBig) jQuery(".plr_pic > img").prop("src", obj.imgBig);
+
+            if (obj.rating) {
+                var bigCard = jQuery(".ex_card > .crd_sec");
+                var ratingClassArr = bigCard.prop("class").split(" ");
+                var ratingClass = "";
+                for (var i = 0; i < 2; i++) {
+                    ratingClass += ratingClassArr[i]+" "
+                }
+                ratingClass += obj.rating+" ";
+                switch (obj.rating) {
+                    case "ace" :
+                    case "l" :
+                    case "e" :
+                    case "w" :
+                    ratingClass += "max10_"+obj.rating;
+                    break;
+                    case "nlive" :
+                    ratingClass += obj.rating;
+                    break;
+                    case "s" :
+                    ratingClass += "max9_"+obj.rating;
+                    break;
+                    case "n" :
+                    ratingClass += "max8_"+obj.rating;
+                    break
+                }
+                bigCard.prop("class", ratingClass)
+            }
+
+            if (obj.level) jQuery(".plr_level").text(obj.level);
+
+            if (obj.poten) jQuery('.crd_box > span.up').addClass("num"+obj.poten);
+        }, 1000)
+    });
 }
 function pp() {
     list.forEach(value => {
