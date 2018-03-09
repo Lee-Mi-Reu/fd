@@ -38,7 +38,7 @@ function cha(obj) {
     if (obj.rating) {
         var superParent = grandFather.parent();
         gettingRatingClass = getRatingClass(superParent.prop("class").split(" "), obj.rating);
-        superParent.prop("class", ratingClass);
+        superParent.prop("class", gettingRatingClass);
     }
 
     if (obj.level) player.parent().siblings(".level").addClass(obj.rating == "nlive" ? "num"+obj.level : "lv_"+obj.level+obj.rating);
