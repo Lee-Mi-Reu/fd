@@ -1,3 +1,29 @@
+function getRatingClass(original, rating) {
+    var ratingClass = "";
+    for (var i = 0; i < 2; i++) {
+        ratingClass += original[i]+" "
+    }
+    ratingClass += rating+" ";
+    switch (rating) {
+        case "ace" :
+        case "l" :
+        case "e" :
+        case "w" :
+        ratingClass += "max10_"+rating;
+        break;
+        case "nlive" :
+        ratingClass += rating;
+        break;
+        case "s" :
+        ratingClass += "max9_"+rating;
+        break;
+        case "n" :
+        ratingClass += "max8_"+rating;
+        break
+    }
+    return ratingClass;
+}
+
 function cha(obj) {
     var player = jQuery("img[src*='"+obj.ori+"_73']");
 
@@ -6,6 +32,18 @@ function cha(obj) {
     var grandFather = player.parent().parent();
 
     if(obj.name) grandFather.siblings(".name_area").find(".name").text(obj.name);
+
+    var gettingRatingClass;
+
+    if (obj.rating) {
+        var superParent = grandFather.parent();
+        gettingRatingClass = getRatingClass(superParent.prop("class").split(" "), obj.rating);
+        superParent.prop("class", ratingClass);
+    }
+
+    if (obj.level) player.parent().siblings(".level").addClass(obj.rating == "nlive" ? "num"+obj.level : "lv_"+obj.level+obj.rating);
+
+    if (obj.poten) player.parent().siblings(".up").addClass("num"+obj.poten);
 
     grandFather.siblings(".plr_btn").on("click", ".plr_more", function () {
         setTimeout(function () {
@@ -16,33 +54,7 @@ function cha(obj) {
 
             if (obj.imgBig) jQuery(".plr_pic > img").prop("src", obj.imgBig);
 
-            if (obj.rating) {
-                var bigCard = jQuery(".ex_card > .crd_sec");
-                var ratingClassArr = bigCard.prop("class").split(" ");
-                var ratingClass = "";
-                for (var i = 0; i < 2; i++) {
-                    ratingClass += ratingClassArr[i]+" "
-                }
-                ratingClass += obj.rating+" ";
-                switch (obj.rating) {
-                    case "ace" :
-                    case "l" :
-                    case "e" :
-                    case "w" :
-                    ratingClass += "max10_"+obj.rating;
-                    break;
-                    case "nlive" :
-                    ratingClass += obj.rating;
-                    break;
-                    case "s" :
-                    ratingClass += "max9_"+obj.rating;
-                    break;
-                    case "n" :
-                    ratingClass += "max8_"+obj.rating;
-                    break
-                }
-                bigCard.prop("class", ratingClass)
-            }
+            if (obj.rating) jQuery(".ex_card > .crd_sec").prop("class", gettingRatingClass);
 
             if (obj.level) jQuery(".plr_level").text(obj.level);
 
