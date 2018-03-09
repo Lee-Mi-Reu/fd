@@ -41,10 +41,10 @@ function cha(obj) {
         superParent.prop("class", gettingRatingClass);
 
         var a = player.parent().siblings(".position");
-        a.prop('class', a.prop('class').substring(0, a.prop('class').lastIndexOf('_'))+obj.rating);
+        a.prop('class', a.prop('class').substring(0, a.prop('class').lastIndexOf('_')+1)+obj.rating);
     }
 
-    if (obj.level) player.parent().siblings(".level").prop("class", "level "+obj.rating == "nlive" ? "num"+obj.level : "lv"+obj.level+"_"+obj.rating);
+    if (obj.level) player.parent().siblings(".level").addClass(obj.rating == "nlive" ? "num"+obj.level : "lv"+obj.level+"_"+obj.rating);
 
     if (obj.poten) player.parent().siblings(".up").addClass("num"+obj.poten);
 
