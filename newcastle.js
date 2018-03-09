@@ -57,7 +57,12 @@ function cha(obj) {
 
             if (obj.imgBig) jQuery(".plr_pic > img").prop("src", obj.imgBig);
 
-            if (obj.rating) jQuery(".ex_card > .crd_sec").prop("class", gettingRatingClass);
+            if (obj.rating) {
+                jQuery(".ex_card > .crd_sec").prop("class", gettingRatingClass);
+                if (obj.rating == "ace") {
+                    jQuery(".plr_data").prepend(jQuery("<span>").addClass("tag m_ace").append(jQuery("<span>").addClass("blind")));
+                }
+            }
 
             if (obj.level) jQuery(".plr_level").text(obj.level);
 
