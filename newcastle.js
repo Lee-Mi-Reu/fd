@@ -71,7 +71,7 @@ function cha(obj) {
     });
 }
 function pp() {
-    if (location.hash.indexOf("lineup") != -1 || location.hash.indexOf("item") != -1) return;
+    if (!(location.hash.indexOf("lineup") != -1 || location.hash.indexOf("item") != -1)) return;
     setTimeout(function () {
         list.forEach(value => {
             cha(value);
