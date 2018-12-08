@@ -1,5 +1,5 @@
 jQuery.ajax({
-    url: "https://rawgit.com/Lee-Mi-Reu/fd/master/chadan.json",
+    url: "https://cdn.jsdelivr.net/gh/Lee-Mi-Reu/fd/chadan.json",
     dataType: "JSON",
     success: function (data) {
         data.forEach(function (v) {
